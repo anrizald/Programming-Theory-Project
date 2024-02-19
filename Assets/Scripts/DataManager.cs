@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
+    // Singleton script to keep data persistence among scenes
+    // - Player name (string)
     public static DataManager Instance;
     public string PlayerName;
 
