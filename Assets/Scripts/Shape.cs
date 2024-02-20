@@ -8,9 +8,9 @@ public class Shape : MonoBehaviour, IPointerClickHandler
 {
     protected Rigidbody rb;
     protected MeshRenderer m_MeshRenderer;
-    // private GameObject m_Selected;
     private Material[] materials;
     [SerializeField] private Material m_Material;
+    public static GameObject m_Selected { get; private set; } = null;
 
     public void Awake()
     {
@@ -22,19 +22,16 @@ public class Shape : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Jump();
         ChangeMaterials();
+
+        m_Selected = this.gameObject;
     }
 
     public virtual void Jump()
     {
-        rb.AddForce(Vector3.up * 5.0f, ForceMode.Impulse);
+        if (m_Selected != null)
+            m_Selected.GetComponent<Rigidbody>().AddForce(Vector3.up * 5.0f, ForceMode.Impulse);
     }
-
-    // public virtual void SelectShape()
-    // {
-    //     m_Selected = gameObject;
-    // }
 
     public virtual void ChangeMaterials()
     {
