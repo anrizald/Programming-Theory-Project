@@ -9,6 +9,6 @@ public class SphereShape : Shape
 
     public override void Jump()
     {
-        rb.AddForce(0.0f, 10.0f, 0.0f, ForceMode.Impulse);
+        m_Selected.GetComponent<Rigidbody>().AddForce(0.0f, 10.0f, 0.0f, ForceMode.Impulse);
     }
 }

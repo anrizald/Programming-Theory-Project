@@ -6,6 +6,6 @@ public class CylinderShape : Shape
 {
     public override void Jump()
     {
-        rb.AddForce(Vector3.right * 20.0f, ForceMode.Impulse);
+        m_Selected.GetComponent<Rigidbody>().AddForce(Vector3.right * 5.0f, ForceMode.Impulse);
     }
 }
